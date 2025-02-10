@@ -1,0 +1,20 @@
+Pre-Build Action:
+
+- Der Übersetzer kann Änderungen an der Anwendung kommentieren
+- Die Version der Anwendung wird gesetzt:
+
+	- Die Versionsnummer besteht aus vier Teilen: Major.Minor.Fix.Build
+ 	- Es wird geprüft, ob im Ordnernamen des Projekts eine richtige Version steht, also Mayor.Minor.Fix
+	- Anhand der Datei "Vorhandene Versionen" geprüft, ob die Version schon einmal übersetzt wurde.
+	  Ist dies nicht der Fall, wird der Build-Teil der Versionsnummer auf 0 gesetzt und die Version aus dem Ordnernamen
+   	  übernommen. Dazu muss der Build-Prozess abgebrochen werden, weil die Version der Build-Spezifikation vor dem 
+   	  Pre-Build VI gelesen wird.
+
+- Es wird nur ein Eintrag in Version_Info.txt gemacht, wenn auch ein Kommentar eigegeben wird. Die Datei wird automatisch in den Data-Ordner kopiert
+
+
+Post-Build Action:
+
+- Prüft ob ein USB-Stick vorhanden, falls ja werden die .exe und der data Ordner automatisch auf diesen kopiert. (In einen Ordner mit dem Projektnamen, also z.B. au0109_Lapp)
+- Archiviert das gesamte Projekt mit der gesamten Versionsnummer im Namen und löscht die älteste .zip, falls mindestens 10 vorhanden
+- Die Build-Nummer der Version wird inkrementiert (für den nächsten Build)

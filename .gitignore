@@ -1,0 +1,7 @@
+# LabVIEW build artifacts and temporary files
+*.aliases
+*.lvlps
+*.lvclass
+*.lvlibp
+*.obj
+*.cache
